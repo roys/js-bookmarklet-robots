@@ -7,7 +7,13 @@
 * ----------------------------------------------------------------------------
 */
 javascript: (function () {
-    console.log('robots.txt linkifier v1.0; https://blog.roysolberg.com');
+    console.log('robots.txt linkifier v1.1; https://blog.roysolberg.com');
+    if(location.pathname != '/robots.txt'){
+        if(confirm('Do you want to navigate to /robots.txt? You need to run the bookmarklet again to linkify it.')){
+            location.href= '/robots.txt';
+        }
+        return;
+    }
     function openLinks() {
         var links = document.links;
         if (links.length > 20) {
